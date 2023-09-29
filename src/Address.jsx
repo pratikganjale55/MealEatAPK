@@ -49,6 +49,7 @@ const Address = ({navigation}) => {
       setAddressModal(false);
       //  console.log("new address", data)
     } catch (error) {
+      setAddressModal(false);
       console.log('post user address details', error);
     }
   };

@@ -6,7 +6,7 @@ const scrollImgData = [
     },
     {
       id: 2,
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9432HMkE8UY6arK5N_9TpqtVp8EYVO1CXVb_LUZxi-tR6ThrB3v3qfNWX0KNPPPj0ksQ&usqp=CAU',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSivCPUqdrrKkOPO7tYLC8HdCApcI74yMKnp-GsDg74ilP8uWmG2-RIkaVnQ8UDOojqNC0&usqp=CAU',
       title: 'We suggest the best food for you',
     },
     {

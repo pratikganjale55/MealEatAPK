@@ -29,11 +29,12 @@ const SplashScreen = () => {
       <View style={style.container}>
         <Animated.Image
           style={{
-            width: width-50,
+            width: width-40,
             height: height-350,
             transform: [{ rotate: spin }],
+
           }}
-          source={{uri: "https://img.freepik.com/premium-vector/food-delivery-service-fast-food-delivery-scooter-delivery-service-illustration_67394-869.jpg"}}
+          source={{uri: "https://cdn.vectorstock.com/i/preview-1x/82/62/food-restaurant-icon-logo-vector-4998262.webp"}}
         />
       </View>
     </>
@@ -44,7 +45,7 @@ const style = StyleSheet.create({
     flex: 1,
     width : width ,
     height : height ,
-    backgroundColor : "#ff6b01" ,
+    backgroundColor : "white" ,
     alignItems: "center",
     justifyContent: "center",
   },

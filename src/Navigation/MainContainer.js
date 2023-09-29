@@ -10,7 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SubsDetails from '../SubsDetails';
 import MealStack from './MealStack';
 import Address from '../Address';
-import Profile from './Screens/Profile';
+
 import SplashScreen from '../SplashScreen';
 import SubscriptionStack from './SubscriptionStack';
 import StepIndicatorCom from '../StepIndicatorCom';
@@ -20,6 +20,8 @@ import i18n from '../Translation/i18n';
 import {useTranslation} from 'react-i18next';
 import changeLanguage from '../Translation/changeLanguage';
 import CircleExpander from '../CircleExpander';
+import Profile from './Screens/Profile';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -72,6 +74,7 @@ const MainContainer = () => {
                   {...props}
                   toggleValue={toggleValue}
                   onToggleChange={onToggleChange}
+                  headerTitle={route.name}
                 />
               ),
               headerTintColor: 'white',
@@ -82,16 +85,16 @@ const MainContainer = () => {
               activeTintColor: '#ff6b01',
               inactiveTintColor: 'grey',
               labelStyle: {paddingBottom: 10, fontSize: 14},
-              style: {padding: 10, height: 70},
+              style: {height: 70},
             }}>
-            <Tab.Screen name={toggleValue ? t("Home") : "Home"} component={Home}  options={{ title:"Home" }}/>
+            <Tab.Screen name={toggleValue ? t("Home") : "Home"} component={Home}/>
             <Tab.Screen name={toggleValue ? t("Meal") : "Meal"} component={MealStack} />
             <Tab.Screen
               name={toggleValue ? t("SubscriptionsStack") : "SubscriptionsStack"}
               component={SubscriptionStack}
               options={{headerShown: false}}
             />
-            <Tab.Screen name={toggleValue ? t("Profile") : "Profile"} component={SplashScreen} />
+            <Tab.Screen name={toggleValue ? t("Profile") : "Profile"} component={Profile} />
           </Tab.Navigator>
         )}
       </NavigationContainer>

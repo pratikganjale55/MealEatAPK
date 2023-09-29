@@ -188,7 +188,7 @@ export default function CircleExpander() {
           </Animated.View>
         </View>
       )}
-      {/* </View> */}
+      {/* </View>  */}
     </View>
   );
 }
@@ -201,7 +201,6 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     justifyContent: 'center',
-
     backgroundColor: 'grey',
     padding: 8,
     width: width - 20,

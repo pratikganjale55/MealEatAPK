@@ -5,7 +5,7 @@ export const MealContext = createContext();
 
 const ContextProvider = ({children}) => {
   const [subData, setUserSubData] = useState({});
-  const [subsPlaneId, setSubPlaneId] = useState(1);
+  const [subsPlaneId, setSubPlaneId] = useState();
   const [detailsData, setDetailsData] = useState({});
   const [selectedDays, setSelectedDays] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);

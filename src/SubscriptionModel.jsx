@@ -1,9 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Divider} from '@rneui/themed';
+import {Button, Divider} from '@rneui/themed';
 import React, {useContext, useMemo, useState} from 'react';
 import {
-  Button,
   Dimensions,
   Modal,
   StyleSheet,
@@ -19,6 +18,7 @@ const width = Dimensions.get('window').width;
 
 const SubscriptionModel = ({isVisible, onClose, navigation}) => {
   const {subsPlaneId, setSubPlaneId, toggleValue} = useContext(MealContext);
+  const [isBtnVisible, setIsBtnVisible] = useState(false);
   const {t} = useTranslation();
   const radioButtons = useMemo(
     () => [
@@ -46,10 +46,17 @@ const SubscriptionModel = ({isVisible, onClose, navigation}) => {
         id: '2',
         label: 'الاشتراك الأسبوعي',
         value: 'weekly_subscription',
-      }
+      },
     ],
     [],
   );
+
+  const handleSelectSubscription = id => {
+    setSubPlaneId(id);
+    setIsBtnVisible(!isBtnVisible);
+  };
+  // console.log(subsPlaneId);
+  // console.log('isBtnVisible >>>>', isBtnVisible);
   return (
     <>
       <Modal visible={isVisible} transparent={true}>
@@ -58,22 +65,46 @@ const SubscriptionModel = ({isVisible, onClose, navigation}) => {
             <Text style={styles.ModalHeaderText}>
               {toggleValue ? t('SELECT SUBSCRIPTION') : 'SELECT SUBSCRIPTION'}
             </Text>
-            <Divider color="grey" width={3} />
+            <Divider color = "grey" width={3} />
             <RadioGroup
               radioButtons={toggleValue ? arRadioButtons : radioButtons}
-              onPress={id => setSubPlaneId(id)}
+              onPress={id => handleSelectSubscription(id)}
               selectedId={subsPlaneId}
             />
             <View style={styles.modalButtons}>
-              <TouchableOpacity onPress={onClose} style={styles.modalCloseBtn}>
-                <Text>{toggleValue ? t('Close') : 'Close'}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
+              <Button
+                title={toggleValue ? t('Close') : 'Close'}
+                buttonStyle={{
+                  backgroundColor: '#ff6b01',
+                  borderWidth: 2,
+                  borderColor: '#ff6b01',
+                  borderRadius: 30,
+                }}
+                containerStyle={{
+                  width: 100,
+                  marginHorizontal: 30,
+                  marginVertical: 20,
+                }}
+                titleStyle={{fontWeight: 'bold'}}
+                onPress={onClose}
+              />
+              <Button
+                title={toggleValue ? t('Proceed') : 'Proceed'}
+                buttonStyle={{
+                  backgroundColor: '#ff6b01',
+                  borderWidth: 2,
+                  borderColor: 'white',
+                  borderRadius: 30,
+                }}
+                containerStyle={{
+                  width: 100,
+                  marginHorizontal: 50,
+                  marginVertical: 20,
+                }}
+                titleStyle={{fontWeight: 'bold'}}
                 onPress={() => navigation.navigate('Details')}
-                style={styles.modalProceedBtn}>
-                <Text>{toggleValue ? t('Proceed') : 'Proceed'}</Text>
-              </TouchableOpacity>
+                disabled={isBtnVisible == false}
+              />
             </View>
           </View>
         </View>
@@ -93,16 +124,16 @@ const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: 'white',
     width: width - 40,
-    padding: 20,
+    paddingTop: 20,
     borderRadius: 10,
     alignItems: 'center',
   },
   ModalHeaderText: {
     color: '#999999',
+    padding: 10,
   },
   modalButtons: {
     flexDirection: 'row',
-    padding: 10,
 
     justifyContent: 'space-around',
   },

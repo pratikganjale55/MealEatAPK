@@ -1,15 +1,16 @@
-import { Card } from "@rneui/themed";
-import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {Card} from '@rneui/themed';
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const CustomeFoodCard = ({
   handleIncrementCustome,
   handleDecrementCustome,
   item,
-  i ,
+  i,
   custmFoodObj,
-
 }) => {
+
+  console.log("custmFoodObj[item.food] >>>", custmFoodObj[item.food])
   return (
     <>
       <Card key={i}>
@@ -21,15 +22,18 @@ const CustomeFoodCard = ({
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={() => handleIncrementCustome(item.food)}
-              style={styles.customeIncreBtn}
-            >
+              style={styles.customeIncreBtn}>
               <Text>+</Text>
             </TouchableOpacity>
-            <Text>{custmFoodObj[item.food]}</Text>
+            {custmFoodObj[item.food] == undefined ? (
+              <Text> 0 </Text>
+            ) : (
+              <Text>{custmFoodObj[item.food]}</Text>
+            )}
             <TouchableOpacity
               onPress={() => handleDecrementCustome(item.food)}
               style={styles.customeDecreBtn}
-            >
+              disabled={custmFoodObj[item.food] == undefined}>
               <Text>-</Text>
             </TouchableOpacity>
           </View>
@@ -40,21 +44,21 @@ const CustomeFoodCard = ({
 };
 
 const styles = StyleSheet.create({
-    customeItemtext: {
+  customeItemtext: {
     fontSize: 16,
-    color: "#ff6b01",
+    color: '#ff6b01',
   },
   buttonContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   cardContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 10,
-    justifyContent: "space-around",
+    justifyContent: 'space-around',
   },
-  customeIncreBtn : {
-    backgroundColor: "#ddd",
+  customeIncreBtn: {
+    backgroundColor: '#ddd',
     padding: 8,
     margin: 5,
     borderRadius: 5,
@@ -65,10 +69,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 5,
-    elevation : 3,
+    elevation: 3,
   },
-  customeDecreBtn : {
-    backgroundColor: "#ddd",
+  customeDecreBtn: {
+    backgroundColor: '#ddd',
     padding: 8,
     margin: 5,
     borderRadius: 5,
@@ -79,10 +83,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 5,
-    elevation : 3,
+    elevation: 3,
   },
   selectedCustomeButton: {
-    backgroundColor: "#ff6b01",
+    backgroundColor: '#ff6b01',
   },
-})
+});
 export default CustomeFoodCard;

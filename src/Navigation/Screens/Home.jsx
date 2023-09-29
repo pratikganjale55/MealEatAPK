@@ -131,16 +131,17 @@ const styles = StyleSheet.create({
   },
   imageCarousel: {
     flex: 2,
+    width: width - 10,
     marginBottom: 20,
   },
   ImgView: {
-    width: width,
+    width: width - 10,
     height: null,
     padding: 10,
   },
   EachImg: {
     flex: 1,
-    width: width,
+    width: width-20,
     height: 500,
     resizeMode: 'cover',
   },

@@ -107,6 +107,18 @@ const resources = {
       "STD CHICKEN THALI" : "الدجاج ثالي",
       "ROTI PANEER MEAL" : "وجبة روتي بانير" ,
       "ROTI PANEER RICE":"أرز روتي بانير",
+      "Mon" : "الاثنين",
+      "Tue" : "الثلاثاء",
+      "Wed" : "تزوج",
+      "Thu" : "الخميس",
+      "Fri" : "الجمعة",
+      "Sat" : "قعد" ,
+      "Daal" : "دال",
+      "Gravy" : "المرق",
+      "Chicken" : "فرخة",
+      "Egg" : "بيضة",
+      "Paneer" : "بانير",
+      "Go to Subscription" : "انتقل إلى الاشتراك"
     },
   },
 };

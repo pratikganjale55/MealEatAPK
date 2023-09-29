@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {
   View,
   Text,
@@ -8,48 +8,41 @@ import {
   ScrollView,
 } from 'react-native';
 import {Card} from 'react-native-paper';
-import { MealContext } from './Context/ContextProvider';
-import mealPlans from "../assets/data/mealPlans" ;
+import {MealContext} from './Context/ContextProvider';
+import mealPlans from '../assets/data/mealPlans';
 
 const MealScheduleTab = () => {
   const [expandedDay, setExpandedDay] = useState(null);
-  const {toggleValue} = useContext(MealContext)
+  const {toggleValue} = useContext(MealContext);
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const ardaysOfWeek = [
-    'الاثنين',
-    'الثلاثاء',
-    'تزوج',
-    'الخميس',
-    'الجمعة',
-    'قعد',
-  ];
-  const {t} = useTranslation() ;
-   const toggleDay = day => {
+  const {t} = useTranslation();
+  const toggleDay = day => {
     setExpandedDay(expandedDay === day ? null : day);
   };
 
   useEffect(() => {
     setExpandedDay('Mon');
   }, []);
-  return <>
-  <ScrollView style={{flex: 1}}>
+  return (
+    <>
+      <ScrollView style={{flex: 1}}>
         <View style={{flexDirection: 'row', marginTop: 20}}>
           {daysOfWeek.map(day => (
             <TouchableOpacity
               key={day}
               style={[
-                style.daysBtn ,
+                style.daysBtn,
                 {
                   backgroundColor: expandedDay === day ? '#ff6b01' : 'white',
                   shadowColor: '#000',
-                  shadowOffset: { width: -3, height: -3 },
+                  shadowOffset: {width: -3, height: -3},
                   shadowOpacity: 0.3,
                   shadowRadius: 3,
                   elevation: expandedDay === day ? 0 : 5,
-                }
+                },
               ]}
               onPress={() => toggleDay(day)}>
-              <Text>{toggleValue ? "الاثنين" : day}</Text>
+              <Text>{toggleValue ? t(day) : day}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -75,9 +68,11 @@ const MealScheduleTab = () => {
                         marginTop: 10,
                         backgroundColor: 'white',
                       }}>
-                      <Card.Title title={toggleValue ? "برينجال" : category} />
+                      <Card.Title
+                        title={toggleValue ? t(category) : category}
+                      />
                       <Card.Cover
-                        source={{uri :mealPlans[expandedDay][category].uri}}
+                        source={{uri: mealPlans[expandedDay][category].uri}}
                         style={{
                           width: 150,
                           height: 110,
@@ -88,15 +83,21 @@ const MealScheduleTab = () => {
                       <Card.Content style={{marginTop: 10}}>
                         <Text>
                           <Text style={{fontSize: 16, color: '#ff6b01'}}>
-                            {toggleValue ? t("Lunch") :'Lunch'}
+                            {toggleValue ? t('Lunch') : 'Lunch'}
                           </Text>{' '}
-                          : {  toggleValue ?  "فرخة" :mealPlans[expandedDay][category].lunch}
+                          :{' '}
+                          {toggleValue
+                            ? 'فرخة'
+                            : mealPlans[expandedDay][category].lunch}
                         </Text>
                         <Text>
                           <Text style={{fontSize: 16, color: '#ff6b01'}}>
-                            {toggleValue ? t("Dinner") :'Dinner'}
+                            {toggleValue ? t('Dinner') : 'Dinner'}
                           </Text>{' '}
-                          : {toggleValue ?  "موسور" : mealPlans[expandedDay][category].dinner}
+                          :{' '}
+                          {toggleValue
+                            ? 'موسور'
+                            : mealPlans[expandedDay][category].dinner}
                         </Text>
                       </Card.Content>
                     </Card>
@@ -111,13 +112,21 @@ const MealScheduleTab = () => {
                           backgroundColor: 'white',
                         }}>
                         <Card.Title
-                          title={toggleValue ?  "بانير" : Object.keys(mealPlans[expandedDay])[index + 1]}
+                          title={
+                            toggleValue
+                              ? t(
+                                  Object.keys(mealPlans[expandedDay])[
+                                    index + 1
+                                  ],
+                                )
+                              : Object.keys(mealPlans[expandedDay])[index + 1]
+                          }
                         />
                         <Card.Cover
-                          source={{ uri :
-                            mealPlans[expandedDay][
+                          source={{
+                            uri: mealPlans[expandedDay][
                               Object.keys(mealPlans[expandedDay])[index + 1]
-                            ].uri
+                            ].uri,
                           }}
                           style={{
                             width: 150,
@@ -128,25 +137,25 @@ const MealScheduleTab = () => {
                         <Card.Content>
                           <Text>
                             <Text style={{fontSize: 16, color: '#ff6b01'}}>
-                              {toggleValue ? t("Lunch") :'Lunch'}
+                              {toggleValue ? t('Lunch') : 'Lunch'}
                             </Text>{' '}
                             :{' '}
-                            {toggleValue ?  "بيضة" :
-                              mealPlans[expandedDay][
-                                Object.keys(mealPlans[expandedDay])[index + 1]
-                              ].lunch
-                            }
+                            {toggleValue
+                              ? 'بيضة'
+                              : mealPlans[expandedDay][
+                                  Object.keys(mealPlans[expandedDay])[index + 1]
+                                ].lunch}
                           </Text>
                           <Text>
                             <Text style={{fontSize: 16, color: '#ff6b01'}}>
-                              {toggleValue ? t("Dinner") :'Dinner'}
+                              {toggleValue ? t('Dinner') : 'Dinner'}
                             </Text>{' '}
                             :{' '}
-                            {toggleValue ?  "بالكاري" :
-                              mealPlans[expandedDay][
-                                Object.keys(mealPlans[expandedDay])[index + 1]
-                              ].dinner
-                            }
+                            {toggleValue
+                              ? 'بالكاري'
+                              : mealPlans[expandedDay][
+                                  Object.keys(mealPlans[expandedDay])[index + 1]
+                                ].dinner}
                           </Text>
                         </Card.Content>
                       </Card>
@@ -157,20 +166,19 @@ const MealScheduleTab = () => {
           </View>
         )}
       </ScrollView>
-
-
-  </>;
+    </>
+  );
 };
 
 const style = StyleSheet.create({
-   daysBtn : {
+  daysBtn: {
     flex: 1,
     // borderWidth: 1,
     // borderColor: '#ff6b01',
-    borderRadius : 5,
+    borderRadius: 5,
     alignItems: 'center',
     paddingVertical: 8,
     marginLeft: 5,
-   }
-})
+  },
+});
 export default MealScheduleTab;

@@ -34,7 +34,7 @@ const Customization = ({navigation}) => {
             handleDecrementCustome={handleDecrementCustome}
             item={item}
             i={i}
-            custmFoodObj={custmFoodObj}
+            custmFoodObj = {custmFoodObj}
           />
         ))}
          <View style={styles.confirmBtn}>
@@ -48,7 +48,6 @@ const Customization = ({navigation}) => {
             }}
             containerStyle={{
               width: 200,
-              
               marginHorizontal: 60,
               marginVertical: 20,
             }}
