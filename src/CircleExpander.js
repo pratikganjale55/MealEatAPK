@@ -79,8 +79,8 @@ export default function CircleExpander() {
                 {position: 'absolute', left: -115, top: 50},
               ]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button, ]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("LITE ROTI CHICKEN") : "LITE ROTI CHICKEN"}</Text>
@@ -90,8 +90,8 @@ export default function CircleExpander() {
               onPress={() => handleClick(2)}
               style={[styles.button]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button,]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("LITE ROTI MEAL") : "LITE ROTI MEAL"}</Text>
@@ -104,8 +104,8 @@ export default function CircleExpander() {
                 {position: 'absolute', left: 115, top: 60},
               ]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button,]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("LITE ROTI VEG") : "LITE ROTI VEG"}</Text>
@@ -123,8 +123,8 @@ export default function CircleExpander() {
             {height: 110, width: 110, borderRadius: 60, margin: 10},
           ]}>
           <Image
-            source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-            style={[styles.button, {opacity: 0.5}]}
+            source={{uri : "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+            style={[styles.button,]}
           />
           <View style={styles.textContainer}>
             <Text style={styles.buttonText}>{toggleValue ? t("MEALS") : "MEALS"}</Text>
@@ -153,8 +153,8 @@ export default function CircleExpander() {
                 {position: 'absolute', left: -115, bottom: 80},
               ]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button,]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("STD CHICKEN THALI") : "STD CHICKEN THALI"}</Text>
@@ -164,8 +164,8 @@ export default function CircleExpander() {
               onPress={() => handleClick(6)}
               style={[styles.button]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button,]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("ROTI PANEER MEAL") : "ROTI PANEER MEAL"}</Text>
@@ -178,8 +178,8 @@ export default function CircleExpander() {
                 {position: 'absolute', right: -115, bottom: 70},
               ]}>
               <Image
-                source={{uri : "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600"}}
-                style={[styles.button, {opacity: 0.5}]}
+                source={{uri : "https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=600"}}
+                style={[styles.button,]}
               />
               <View style={styles.textContainer}>
                 <Text style={styles.buttonText}>{toggleValue ? t("ROTI PANEER RICE") : "ROTI PANEER RICE"}</Text>
@@ -216,12 +216,12 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 120,
     height: 120,
-    backgroundColor: 'white',
+    backgroundColor: '#D0E7D2',
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#ff6b01',
-    borderWidth: 3,
+    // borderWidth: 3,
   },
   textContainer: {
     position: 'absolute',
@@ -232,8 +232,8 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    // color : "white" ,
+    color : "black" ,
   },
 });

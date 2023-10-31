@@ -21,35 +21,40 @@ import {useTranslation} from 'react-i18next';
 import changeLanguage from '../Translation/changeLanguage';
 import CircleExpander from '../CircleExpander';
 import Profile from './Screens/Profile';
-
-
+import Login from '../Login';
 
 const Tab = createBottomTabNavigator();
 
 const MainContainer = () => {
   const [loading, setLoading] = useState(true);
-  const {toggleValue, setToggleValue} = useContext(MealContext);
+  const {toggleValue, setToggleValue, isLogin} = useContext(MealContext);
 
   const {t} = useTranslation();
- 
+  const Stack = createStackNavigator();
   const onToggleChange = () => {
     setToggleValue(!toggleValue);
-    if(toggleValue) {
-      changeLanguage("ar")
+    if (toggleValue) {
+      changeLanguage('ar');
     }
   };
-  
+console.log("IsLogin>>>>", isLogin)
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 4000);
-  }, []);
+  }, [toggleValue]);
   return (
     <>
       <NavigationContainer>
         {loading ? (
           <SplashScreen />
-        ) : (
+        ) : 
+        !isLogin ?
+        <Stack.Navigator>
+           <Stack.Screen name="Login" component={Login}/>
+        </Stack.Navigator>
+        :
+        (
           <Tab.Navigator
             screenOptions={({route}) => ({
               tabBarIcon: ({focused, color, size}) => {
@@ -59,9 +64,15 @@ const MainContainer = () => {
                   iconName = focused ? 'home' : 'home-outline';
                 } else if (rootName === 'Meal' || rootName === 'وجبة') {
                   iconName = focused ? 'fast-food' : 'fast-food-outline';
-                } else if (rootName === 'SubscriptionsStack' || rootName == "الاشتراكاتالمكدس") {
+                } else if (
+                  rootName === 'SubscriptionsStack' ||
+                  rootName == 'الاشتراكاتالمكدس'
+                ) {
                   iconName = focused ? 'wallet' : 'wallet';
-                } else if (rootName === 'Profile' || rootName == "حساب تعريفي") {
+                } else if (
+                  rootName === 'Profile' ||
+                  rootName == 'حساب تعريفي'
+                ) {
                   iconName = focused ? 'person' : 'person-outline';
                 }
                 return <Ionicons name={iconName} size={size} color={color} />;
@@ -87,14 +98,25 @@ const MainContainer = () => {
               labelStyle: {paddingBottom: 10, fontSize: 14},
               style: {height: 70},
             }}>
-            <Tab.Screen name={toggleValue ? t("Home") : "Home"} component={Home}/>
-            <Tab.Screen name={toggleValue ? t("Meal") : "Meal"} component={MealStack} />
             <Tab.Screen
-              name={toggleValue ? t("SubscriptionsStack") : "SubscriptionsStack"}
+              name={toggleValue ? t('Home') : 'Home'}
+              component={Home}
+            />
+            <Tab.Screen
+              name={toggleValue ? t('Meal') : 'Meal'}
+              component={MealStack}
+            />
+            <Tab.Screen
+              name={
+                toggleValue ? t('SubscriptionsStack') : 'SubscriptionsStack'
+              }
               component={SubscriptionStack}
               options={{headerShown: false}}
             />
-            <Tab.Screen name={toggleValue ? t("Profile") : "Profile"} component={Profile} />
+            <Tab.Screen
+              name={toggleValue ? t('Profile') : 'Profile'}
+              component={Profile}
+            />
           </Tab.Navigator>
         )}
       </NavigationContainer>

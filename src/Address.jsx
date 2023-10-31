@@ -18,29 +18,41 @@ import StepIndicatorCom from './StepIndicatorCom';
 const width = Dimensions.get('screen').width;
 const Address = ({navigation}) => {
   const [isAddressModal, setAddressModal] = useState(false);
-  const {detailsData, setPosition} = useContext(MealContext);
+  const {detailsData, setPosition, userName} = useContext(MealContext);
   const [addressId, setAddressId] = useState();
   const [address, setAddress] = useState({
     street: '',
     city: '',
     state: '',
     postalCode: '',
+    userName,
   });
   const [addressData, setAddressData] = useState();
   const [selectedAddress, setSelectedAddress] = useState();
+  const [isAddressBtnVisible, setIsAddressBtnVisible] = useState(false);
   const handleAddressModal = () => {
     setAddressModal(!isAddressModal);
+    setAddress({
+      street: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      userName,
+    });
   };
 
   const handleAddAdress = async () => {
     try {
-      const res = await fetch('https://weak-gray-drill-yoke.cyclic.cloud/address', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch(
+        'https://weak-gray-drill-yoke.cyclic.cloud/address',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(address),
         },
-        body: JSON.stringify(address),
-      });
+      );
 
       const data = await res.json();
       if (data) {
@@ -50,16 +62,19 @@ const Address = ({navigation}) => {
       //  console.log("new address", data)
     } catch (error) {
       setAddressModal(false);
+      getUserAddress();
       console.log('post user address details', error);
     }
   };
   const handleAddressProceed = async () => {
     try {
-      const res = await fetch(`https://weak-gray-drill-yoke.cyclic.cloud/address`);
+      const res = await fetch(
+        `https://weak-gray-drill-yoke.cyclic.cloud/address`,
+      );
       const data = await res.json();
 
       setSelectedAddress(data);
-      // getUserAddress();
+      getUserAddress();
       console.log('select address', selectedAddress);
     } catch (error) {
       console.log('error while getting selected address', error);
@@ -70,12 +85,15 @@ const Address = ({navigation}) => {
   const handleSelectExistAddress = id => {
     console.log(id);
     setAddressId(id);
+    setIsAddressBtnVisible(true);
   };
   // console.log(detailsData);
 
   const getUserAddress = async () => {
     try {
-      const res = await fetch('https://weak-gray-drill-yoke.cyclic.cloud/address');
+      const res = await fetch(
+        'https://weak-gray-drill-yoke.cyclic.cloud/address',
+      );
 
       const data = await res.json();
       if (data) {
@@ -88,6 +106,7 @@ const Address = ({navigation}) => {
   };
   useEffect(() => {
     getUserAddress();
+    setPosition(1);
   }, []);
 
   return (
@@ -161,6 +180,7 @@ const Address = ({navigation}) => {
                 buttonStyle={{
                   backgroundColor: '#ff6b01',
                 }}
+                disabled={isAddressBtnVisible == false}
               />
             </View>
           </Card>
@@ -199,17 +219,57 @@ const Address = ({navigation}) => {
                 />
               </View>
               <View style={styles.modalAddButtons}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={handleAddressModal}
                   style={styles.modalAddCloseBtn}>
                   <Text>Close</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
+                </TouchableOpacity> */}
+                <Button
+                  title={'Close'}
+                  buttonStyle={{
+                    backgroundColor: '#ff6b01',
+                    borderWidth: 2,
+                    borderColor: 'white',
+                    borderRadius: 30,
+                  }}
+                  containerStyle={{
+                    width: 100,
+                    
+                    marginVertical: 20,
+                  }}
+                  titleStyle={{fontWeight: 'bold'}}
+                  onPress={handleAddressModal}
+                  
+                />
+                {/* <TouchableOpacity
                   onPress={() => handleAddAdress(navigation)}
-                  style={styles.modalAddProceedBtn}>
+                  style={styles.modalAddProceedBtn}
+                  disabled= {address.street =="" || address.city == "" || address.postalCode == "" || address.state == ""}
+                  >
                   <Text>Add</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <Button
+                  title={'Add'}
+                  buttonStyle={{
+                    backgroundColor: '#ff6b01',
+                    borderWidth: 2,
+                    borderColor: 'white',
+                    borderRadius: 30,
+                  }}
+                  containerStyle={{
+                    width: 100,
+                    // marginHorizontal: 60,
+                    marginVertical: 20,
+                  }}
+                  titleStyle={{fontWeight: 'bold'}}
+                  onPress={() => handleAddAdress(navigation)}
+                  disabled={
+                    address.street == '' ||
+                    address.city == '' ||
+                    address.postalCode == '' ||
+                    address.state == ''
+                  }
+                />
               </View>
             </View>
           </View>
@@ -258,6 +318,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     justifyContent: 'space-around',
+    alignItems : "center" ,
   },
   modalAddCloseBtn: {
     padding: 10,

@@ -8,10 +8,10 @@ const liteMeal = [
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light.",
     image:
-      "https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2017/23-march/Everyday_Meal_plate_with_carrot_beans_poriyal_rasam_bottle_gourd_kootu_rice_and_papad-3.jpg",
+      "https://img.freepik.com/premium-vector/delicious-veg-biryani-plate_642458-608.jpg?w=2000",
     price: 115,
     discount : "5%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 12,
@@ -22,10 +22,10 @@ const liteMeal = [
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light.",
     image:
-      "https://img.freepik.com/premium-photo/punjabi-veg-thali-from-indian-cuisine-food-platter-consists-variety-veggies-lentils-jeera-rice-roti-sweet-dish-curd-pickle-etc-selective-focus_726363-543.jpg",
+      "https://media.istockphoto.com/id/1304175781/vector/thali-cartoon-vector-illustration-indian-traditional-dish-metal-plate-with-meals-flat-color.jpg?s=612x612&w=0&k=20&c=y5Lemq43I0zgRbmFHmM3YkAzgzz6rRQM5WVQqJlLmc0=",
     price: 115,
     discount : "8%",
-    star : [1,2,3,],
+    star : [false, false, false, false, false],
   },
   {
     id: 13,
@@ -35,10 +35,10 @@ const liteMeal = [
     inside: "You Get 3 Roti, Daal, Egg Gravy, Salad",
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light but don't compromise on protein.",
-    image: "https://static.toiimg.com/thumb/53301873.cms?width=1200&height=900",
+    image: "https://img.freepik.com/premium-vector/nasi-goreng-fried-rice-white-background-top-view_307665-195.jpg",
     price: 125,
     discount : "4%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 14,
@@ -48,10 +48,10 @@ const liteMeal = [
     inside: "You Get Rice, Daal, Paneer Gravy, Salad",
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light but don't compromise on protein.",
-    image: "https://www.theendlessmeal.com/wp-content/uploads/2021/06/Paneer-Butter-Masala-2-scaled.jpg",
+    image: "https://media.istockphoto.com/id/1091697466/photo/schezwan-paneer-fried-rice-with-szechuan-sauce-and-cottage-cheese-cubes-served-in-a-bowl-or.jpg?s=1024x1024&w=is&k=20&c=XCXtAiBrVOzH79XEzPC4AqaQ0qQn7196GczSkurJRTM=",
     price: 130,
     discount : "6%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 15,
@@ -61,10 +61,10 @@ const liteMeal = [
     inside: "You Get 3 Roti, Daal, Paneer Gravy, Salad",
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light but don't compromise on protein.",
-    image: "https://i.pinimg.com/736x/3f/1d/5e/3f1d5e2c3b5258ea8e3a6217f075642f.jpg",
+    image: "https://img.myloview.com/stickers/paneer-paratha-indian-street-food-vector-700-207008540.jpg",
     price: 150,
     discount : "3%",
-    star : [1,2,3],
+    star : [false, false, false, false, false],
   },
   {
     id: 16,
@@ -74,10 +74,10 @@ const liteMeal = [
     inside: "You Get 3 Roti, Daal, Mutton Gravy, Salad",
     details:
       "Meals that is designed for the people who are planning to loose weight and eat light but don't compromise on protein.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScUI0fHXKAgfvWmjyH1dJCk3djXahX138uyfubnUx9Vx8dyzLsi9QZ8D5Dl2xyz6lAs_A&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn0WP3YE2UwpmAvA6K6AzTIsOAisWVs5CubLYryrxXnk2X516OHNmc-L-0JUvy-ZvlpB0&usqp=CAU",
     price: 170,
     discount : "4%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
 ];
 

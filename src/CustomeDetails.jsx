@@ -37,7 +37,7 @@ const CustomeDetails = ({navigation}) => {
 
   useEffect(() => {
     calculationOfCstmMeal(detailsData.addCstmFood);
-    console.log('details page', detailsData);
+    // console.log('details page', detailsData);
   }, []);
   return (
     <>
@@ -93,7 +93,7 @@ const CustomeDetails = ({navigation}) => {
               width: 200,
             }}
             titleStyle={{fontWeight: 'bold'}}
-            onPress={() => handleCstmConfirmProceed(navigation)}
+            onPress={() => handleCstmConfirmProceed(navigation, cstmTotal)}
           />
         </View>
       </Card>

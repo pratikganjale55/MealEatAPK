@@ -14,7 +14,7 @@ const Details = ({navigation}) => {
     setCustomePrice,
     setSubIdDB,
     setPosition,
-    subIdFromDB
+    userName,
   } = useContext(MealContext);
 
   console.log("detailsData",detailsData );
@@ -37,9 +37,9 @@ const Details = ({navigation}) => {
   };
 
   const handleSubmitAllDetails = async () => {
-    setUserSubscriptionData({...userSubscriptionsData, detailsData});
+    setUserSubscriptionData({...userSubscriptionsData, detailsData, userName});
    
-   console.log(detailsData)
+    console.log("posting data")
     try {
      const res = await fetch("https://weak-gray-drill-yoke.cyclic.cloud/userSubscriptionsData",{
         method : "POST" ,
@@ -48,6 +48,7 @@ const Details = ({navigation}) => {
         },
         body :JSON.stringify(detailsData)
       })
+      console.log("posting data")
       const data = await res.json() ;
       console.log("data", data)
       setSubIdDB(data.id)
@@ -61,8 +62,9 @@ const Details = ({navigation}) => {
   };
   useEffect(() => {
     calculateTotalPrice(detailsData.custmFoodObj);
+    setPosition(0)
   }, []);
-  console.log(customePrice);
+  // console.log(customePrice);
   return (
     <>
     <StepIndicatorCom/>

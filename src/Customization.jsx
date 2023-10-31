@@ -10,20 +10,26 @@ import { useTranslation } from 'react-i18next';
 
 const Customization = ({navigation}) => {
   const { custmFoodObj, setCustmFoodObj, handleConfirmCustome, toggleValue } = useContext(MealContext);
+  // const [isBtnVisible, setIsBtnVisible] = useState(false)
   const {t} = useTranslation() ;
+
+  const sumOfValues = Object.values(custmFoodObj).reduce((acc, val) => acc+val, 0)
+  const isBtnVisible =  sumOfValues > 0 ;
   const handleIncrementCustome = (food) => {
     setCustmFoodObj((prev) => ({
       ...prev,
       [food]: (prev[food] || 0) + 1,
     }));
+    // setIsBtnVisible(true)
   };
   const handleDecrementCustome = (food) => {
     setCustmFoodObj((prev) => ({
       ...prev,
       [food]: (prev[food] || 0) - 1,
     }));
+    
   };
-//   console.log(custmFoodObj);
+  // console.log("custmFoodObj >>",custmFoodObj );
   return (
     <>
       <ScrollView>
@@ -53,6 +59,7 @@ const Customization = ({navigation}) => {
             }}
             titleStyle={{ fontWeight: "bold" }}
             onPress={() => handleConfirmCustome(navigation)}
+            disabled= {!isBtnVisible}
           />
           </View>
       </ScrollView>

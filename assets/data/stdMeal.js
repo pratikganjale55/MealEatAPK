@@ -7,10 +7,10 @@ const stdMeal = [
     inside: "You Get Rice, 2 Roti, Daal, Gravy Sabji, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://img.freepik.com/premium-photo/indo-chinese-veg-combo-meal-consists-veg-pulav-veg-manchurian-spring-rolls-selective-focus_726363-578.jpg?w=2000",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZF4d1jeoFt5sHbirrMzIqquOVtARrBm2a_fr_PTTD0oNJEyIFxjoBwYXow7xruxxywWM&usqp=CAU",
     price: 125,
     discount : "7%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 22,
@@ -20,10 +20,10 @@ const stdMeal = [
     inside: "You Get 5 Roti, Daal, Gravy Sabji, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://lh3.googleusercontent.com/fO9XoikmS9tAT52C7WGMyvBr6y-jLdC428fvx5Fac68WGjIeaKl4uP4-1lA-KSUZscovgcR7HkmeOjQyeEYRryaxFxnc=w512-rw",
+    image: "https://previews.123rf.com/images/artsholice/artsholice1905/artsholice190500002/125940656-indian-food-naan-and-rice-with-chicken-curry.jpg",
     price: 140,
     discount : "5%",
-    star : [1,2,3],
+    star : [false, false, false, false, false],
   },
   {
     id: 23,
@@ -33,10 +33,10 @@ const stdMeal = [
     inside: "You Get Rice, 2 Roti, Daal, Egg Gravy, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS00Bc602RGiB8wNBoaFlv1iC9KHwfrCrSnng&usqp=CAU",
+    image: "https://img.freepik.com/premium-vector/top-view-delicious-healthy-breakfast-with-bacon-slices-fried-eggs-broccoli-arugula-toasts_499433-115.jpg?w=2000",
     price: 130,
     discount : "4%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 24,
@@ -46,10 +46,10 @@ const stdMeal = [
     inside: "You Get Rice,2 Roti, Daal, Chicken Gravy, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://media.istockphoto.com/id/186109557/photo/thai-food-combo-plate.jpg?s=612x612&w=0&k=20&c=O6LWbIDyffZEuDsJHiDdpac3bLjCpfge63PsyPN0TEE=",
+    image: "https://png.pngtree.com/png-vector/20201229/ourlarge/pngtree-gourmet-fried-food-mcdonald-s-fast-food-combo-png-image_2665442.jpg",
     price: 145,
     discount : "2%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
   {
     id: 25,
@@ -59,10 +59,10 @@ const stdMeal = [
     inside: "You Get Rice, 2 Roti, Daal, Mutton Gravy, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://i.pinimg.com/736x/3e/57/8a/3e578a9abd606bbdf714f85719ef6590.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7rPxczLq-bfo9NP6zm4R12iymiS43Uk9Vg&usqp=CAU",
     price: 180,
     discount : "4%",
-    star : [1,2,3],
+    star : [1,2,3,5],
   },
   {
     id: 26,
@@ -72,10 +72,10 @@ const stdMeal = [
     inside: "You Get 5Roti, Daal, Paneer Gravy, Salad",
     details:
       "Standard Meals are made for the people who are looking for lesser meal size not missing on the needed carbohydrate will have. Served in 3cp Disposable Box.",
-    image: "https://media.istockphoto.com/id/968309596/photo/indian-food-or-indian-curry-in-a-copper-brass-serving-bowl-with-bread-or-roti.jpg?s=170667a&w=is&k=20&c=v9s1OpH7gGKFvOi0R4qlEhgjvkMRtEQJo8lH00e2LZQ=",
+    image: "https://img.freepik.com/premium-photo/mutton-gosht-masala-indian-lamb-rogan-josh-with-some-seasoning-served-with-naan-roti-selective-focus_466689-56761.jpg?w=2000",
     price: 175,
     discount : "5%",
-    star : [1,2,3,4],
+    star : [false, false, false, false, false],
   },
 ];
 

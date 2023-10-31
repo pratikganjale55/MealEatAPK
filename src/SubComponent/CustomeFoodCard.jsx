@@ -10,7 +10,7 @@ const CustomeFoodCard = ({
   custmFoodObj,
 }) => {
 
-  console.log("custmFoodObj[item.food] >>>", custmFoodObj[item.food])
+  // console.log("custmFoodObj[item.food] >>>", custmFoodObj[item.food])
   return (
     <>
       <Card key={i}>
@@ -25,15 +25,11 @@ const CustomeFoodCard = ({
               style={styles.customeIncreBtn}>
               <Text>+</Text>
             </TouchableOpacity>
-            {custmFoodObj[item.food] == undefined ? (
-              <Text> 0 </Text>
-            ) : (
-              <Text>{custmFoodObj[item.food]}</Text>
-            )}
+            <Text>{custmFoodObj[item.food]}</Text>
             <TouchableOpacity
               onPress={() => handleDecrementCustome(item.food)}
               style={styles.customeDecreBtn}
-              disabled={custmFoodObj[item.food] == undefined}>
+              disabled={custmFoodObj[item.food] <= 0}>
               <Text>-</Text>
             </TouchableOpacity>
           </View>

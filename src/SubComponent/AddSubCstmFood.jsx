@@ -1,6 +1,6 @@
-import { Card, Text } from "@rneui/themed";
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {Card, Text} from '@rneui/themed';
+import React from 'react';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 
 const AddSubCstmFood = ({
   item,
@@ -9,6 +9,7 @@ const AddSubCstmFood = ({
   handleDecrCstmMeal,
   addCstmFood,
 }) => {
+  // console.log("addCstmFood >>" , addCstmFood[item.food])
   return (
     <>
       <Card key={i}>
@@ -20,15 +21,16 @@ const AddSubCstmFood = ({
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={() => handleIncrCstmMeal(item.food)}
-              style={styles.customeIncreBtn}
-            >
+              style={styles.customeIncreBtn}>
               <Text>+</Text>
             </TouchableOpacity>
+
             <Text>{addCstmFood[item.food]}</Text>
+
             <TouchableOpacity
               onPress={() => handleDecrCstmMeal(item.food)}
               style={styles.customeDecreBtn}
-            >
+              disabled={addCstmFood[item.food] <= 0}>
               <Text>-</Text>
             </TouchableOpacity>
           </View>
@@ -41,25 +43,25 @@ const AddSubCstmFood = ({
 const styles = StyleSheet.create({
   customeItemtext: {
     fontSize: 16,
-    color: "#ff6b01",
+    color: '#ff6b01',
   },
   buttonContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   cardCstmContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     // padding: 10,
-    justifyContent: "space-around",
+    justifyContent: 'space-around',
   },
   customeIncreBtn: {
-    backgroundColor: "#ddd",
+    backgroundColor: '#ddd',
     padding: 8,
     margin: 5,
     borderRadius: 5,
   },
   customeDecreBtn: {
-    backgroundColor: "#ddd",
+    backgroundColor: '#ddd',
     padding: 8,
     margin: 5,
     borderRadius: 5,

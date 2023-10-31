@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Button, Divider} from '@rneui/themed';
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {
   Dimensions,
   Modal,
@@ -53,10 +53,14 @@ const SubscriptionModel = ({isVisible, onClose, navigation}) => {
 
   const handleSelectSubscription = id => {
     setSubPlaneId(id);
-    setIsBtnVisible(!isBtnVisible);
+    setIsBtnVisible(true);
   };
   // console.log(subsPlaneId);
   // console.log('isBtnVisible >>>>', isBtnVisible);
+  useEffect(() => {
+    setSubPlaneId(0)
+    setIsBtnVisible(false) ;
+  }, [])
   return (
     <>
       <Modal visible={isVisible} transparent={true}>

@@ -9,18 +9,28 @@ const ContextProvider = ({children}) => {
   const [detailsData, setDetailsData] = useState({});
   const [selectedDays, setSelectedDays] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [custmFoodObj, setCustmFoodObj] = useState({});
+  const [custmFoodObj, setCustmFoodObj] = useState({
+    "Gravy (Rs 30)": 0, 
+    "Rice (Rs 35)": 0, 
+    "Roti (Rs 9)": 0, 
+    "Sweet (Rs 35)": 0
+  });
   const [userSubscriptionsData, setUserSubscriptionData] = useState({});
   const [qty, setQty] = useState(1);
   const [customePrice, setCustomePrice] = useState(0);
   const [extraFood, setExtraFood] = useState([]);
-  const [addCstmFood, setAddCstmFood] = useState({});
+  const [addCstmFood, setAddCstmFood] = useState({
+    "Gravy (Rs 30)": 0, 
+    "Rice (Rs 35)": 0, 
+    "Roti (Rs 9)": 0, 
+    "Sweet (Rs 35)": 0
+  });
   const [subIdFromDB, setSubIdDB] = useState();
   const [toggleValue, setToggleValue] = useState(false); 
   const [position, setPosition] = useState(0);
   const [selectedTime, setSelectedTime] = useState("lunch"); 
-
-
+  const [isLogin, setIsLogin] = useState(false);
+ const [userName, setUsername] = useState() ;
 
   const handleSubmitDetails = navigation => {
     // console.log(subData);
@@ -34,6 +44,7 @@ const ContextProvider = ({children}) => {
       qty: qty,
       selectedTime : selectedTime ,
       title: subData.title,
+      userName ,
     });
     navigation.navigate('Customization');
     // console.log(detailsData);
@@ -54,8 +65,9 @@ const ContextProvider = ({children}) => {
     }
   };
 
-  const handleCstmConfirmProceed = async(navigation) => {
+  const handleCstmConfirmProceed = async(navigation, cstmTotal) => {
     try {
+      const addCstmFoodData = {...addCstmFood,cstmTotal , userName}
       const res = await fetch("https://weak-gray-drill-yoke.cyclic.cloud/extraFood",{
          method : "POST" ,
          headers : {
@@ -66,19 +78,20 @@ const ContextProvider = ({children}) => {
            "Access-Control-Allow-Methods" : "GET" ,
            "Access-Control-Allow-Headers" : "Origin, OPTIONS, X-Requested-With, Content-Type, Accept"
          },
-         body : JSON.stringify(addCstmFood)
+         body : JSON.stringify(addCstmFoodData)
        })
  
        const data = await res.json() ;
-      //  console.log("extraFdAllDetails", extraFdAllDetails)
-       navigation.navigate("Payment")
+       console.log("extraFdAllDetails", data)
+       navigation.navigate("Subscription")
        console.log("repoonse while post user data", data)
      } catch (error) {
        console.log('post user subs details', error);
-       navigation.navigate("Payment")
+       navigation.navigate("Subscription")
      }
     // navigation.navigate('Payment');
   };
+  console.log("userName >>>", userName)
   return (
     <>
       <MealContext.Provider
@@ -115,7 +128,11 @@ const ContextProvider = ({children}) => {
           setPosition,
           position ,
           setSelectedTime,
-          selectedTime
+          selectedTime,
+          setIsLogin,
+          isLogin,
+          setUsername,
+          userName,
         }}>
         {children}
       </MealContext.Provider>

@@ -10,6 +10,7 @@ import Details from "../Details";
 
 
 import Payment from "../Payment";
+import MySubscription from "./Screens/MySubscription";
 
 
 const Stack = createStackNavigator();
@@ -28,6 +29,7 @@ const MealStack = () => {
         <Stack.Screen name="otp" component={OTP} />
         <Stack.Screen name="Address" component={Address}  />
         <Stack.Screen name="AllDetails" component={Details} />
+        <Stack.Screen name="Subscription" component={MySubscription}/>
         <Stack.Screen name="Payment" component={Payment}/>
       </Stack.Navigator>
     </>
